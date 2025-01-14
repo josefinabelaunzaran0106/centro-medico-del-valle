@@ -1,0 +1,3 @@
+# Ignorar contenedores locales
+*.log
+.env

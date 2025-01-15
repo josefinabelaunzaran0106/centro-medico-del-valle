@@ -43,7 +43,7 @@ Ejecuta el siguiente comando para iniciar el entorno Docker:
 docker-compose up -d --build
 ```
 
-- El sitio de WordPress estará disponible en: [http://localhost:8083](http://localhost:8080)
+- El sitio de WordPress estará disponible en: [http://localhost:8083](http://localhost:8083)
 - La base de datos MariaDB estará disponible en el puerto `3308`.
 
 ### 3. Restaurar la Base de Datos

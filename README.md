@@ -106,22 +106,30 @@ Actualizar la Carpeta wp-content/
 1. Realiza tus cambios en el entorno local (por ejemplo, instala nuevos plugins o modifica temas).
 
 2. Copia la carpeta wp-content/ desde el contenedor a tu máquina local:
-
+   ```bash
     docker cp wordpress-container-consultorio:/var/www/html/wp-content ./wp-content
+   ```
 
-3. Añade los cambios al repositorio:
+4. Añade los cambios al repositorio:
+ ```bash
     git add wp-content/
     git commit -m "Actualización de wp-content"
     git push origin main
+```
 
 Actualizar el Archivo db-dump.sql
 
 1. Exporta la base de datos actualizada desde el contenedor:
+   ```bash
     docker exec mariadb-container-consultorio mysqldump -u wordpress_user -p wordpress_password wordpress > ./db-conultorio-dump.sql
-2. Añade el archivo al repositorio:
+   ```
+3. Añade el archivo al repositorio:
+   ```bash
     git add db-dump.sql
     git commit -m "Actualización de la base de datos"
     git push origin main
+
+    ```
 
 De esta manera, los cambios realizados en los plugins, temas o contenido del sitio estarán disponibles para todos los colaboradores.
 

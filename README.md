@@ -40,16 +40,17 @@ cd project
 ### 2. Levantar los Contenedores
 Ejecuta el siguiente comando para iniciar el entorno Docker:
 ```bash
-docker-compose up -d
+docker-compose up -d --build
 ```
 
-- El sitio de WordPress estará disponible en: [http://localhost:8080](http://localhost:8080)
-- La base de datos MariaDB estará disponible en el puerto `3306`.
+- El sitio de WordPress estará disponible en: [http://localhost:8083](http://localhost:8080)
+- La base de datos MariaDB estará disponible en el puerto `3308`.
 
 ### 3. Restaurar la Base de Datos
 Importa la base de datos desde el archivo `db-dump.sql`:
 ```bash
-docker exec -i mariadb-container-consultorio mysql -u wordpress_user -p wordpress_password wordpress < db-consultorio-dump.sql
+docker exec -i mariadb-container-consultorio mysql -u wordpress_user -pwordpress_password wordpress_db < db-consultorio-dump.sql
+
 ```
 
 ---
@@ -121,7 +122,7 @@ Actualizar el Archivo db-dump.sql
 
 1. Exporta la base de datos actualizada desde el contenedor:
    ```bash
-    docker exec mariadb-container-consultorio mysqldump -u wordpress_user -p wordpress_password wordpress > ./db-conultorio-dump.sql
+    docker exec mariadb-container-consultorio mysqldump --column-statistics=0 -u wordpress_user -pwordpress_password wordpress_db > ./db-consultorio-dump.sql
    ```
 3. Añade el archivo al repositorio:
    ```bash
